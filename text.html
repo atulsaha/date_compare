@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Dates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 300px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            margin: 0;
+        }
+        button {
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function compareDates() {
+    const date1 = new Date(document.getElementById('date1').value);
+    const date2 = new Date(document.getElementById('date2').value);
+    const diffInDays = Math.ceil(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
+    const resultDiv = document.getElementById('result');
+
+    if (isNaN(diffInDays)) {
+        resultDiv.innerHTML = 'Please select two valid dates.';
+    } else {
+        resultDiv.innerHTML = `The difference between the two dates is ${diffInDays} days.`;
+    }
+   
+}
+    </script>
+</head>
+<body>
+    <h1>Compare Dates</h1>
+    <p>Enter the staring Data: <input type="date" id="date1"></p>
+    <p>Enter the Ending Data: <input type="date" id="date2"></p>
+    <button onclick="compareDates()">Compare</button>
+    <p id="result"></p>
+</body>
+</html>
